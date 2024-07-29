@@ -10,35 +10,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 250,
-      height: 250,
-      child: Stack(
-        children: <Widget>[
-          Container(
-            width: 250,
-            height: 250,
-            color: Colors.white,
-          ),
-          Container(
-            padding: const EdgeInsets.all(5.0),
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Colors.blue.withAlpha(0),
-                  Colors.lightBlue,
-                  Colors.lightBlueAccent
-                ],
-              ),
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.center, // Center children in the Stack
+        children: [
+          ...List.generate(
+            5,
+                (index) => Container(
+              width: index * 350 + 350,
+              height: index * 100 + 100,
+              color: Color.fromRGBO(index * 20, index * 20, index * 40, 1.0),
             ),
-            child: const Text(
-              '개쩌는 그라데이션',
-              style: TextStyle(color: Colors.white, fontSize: 20.0),
-            ),
-          ),
+          ).reversed,
         ],
       ),
     );
