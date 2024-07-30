@@ -10,62 +10,48 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: const Text('Stack test'),
+          title: const Text("align 실습"),
         ),
-        body: Center(
-          child: Stack(
-            children: [
-
-              Positioned(
-                child: Container(
-                  alignment: Alignment.bottomCenter,
+        body: Container(
+            child: Stack(
+              children: [
+                Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
-
-                  color: Colors.grey,
+                  color: Colors.black12,
                 ),
-              ),
-
-              Positioned(
-                left:0,
-                bottom: 0,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  height: 50,
-                  width: 144,
-                  color: Colors.brown,
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 150,
+                    color: Colors.brown,
+                  ),
                 ),
-              ),
-
-              Positioned(
-                left:10,
-                bottom: 50,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  height: 40,
-                  width: 40,
-                  color: Colors.yellow,
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 40, bottom: 150),
+                    width: 100,
+                    height: 150,
+                    color: Colors.yellow,
+                  ),
                 ),
-              ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 200),
+                    width: 200,
+                    height: 70,
+                    color: Colors.lightBlue[200],
+                  ),
+                )
+              ],
+            )
 
-              Positioned(
-                left: 35,
-                top: 100,
-
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  height: 30,
-                  width: 72,
-                  color: Colors.lightBlueAccent,
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+        )
     );
   }
 }
