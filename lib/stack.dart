@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           ...List.generate(
             5,
-                (index) => Container(
+            (index) => Container(
               width: index * 350 + 350,
               height: index * 100 + 100,
               color: Color.fromRGBO(index * 20, index * 20, index * 40, 1.0),
