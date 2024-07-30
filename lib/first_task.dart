@@ -22,8 +22,9 @@ class _MyHomePageState extends State<MyHomePage> {
               Positioned(
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  height: 312,
-                  width: 144,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+
                   color: Colors.grey,
                 ),
               ),
