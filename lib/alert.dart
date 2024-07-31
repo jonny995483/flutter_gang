@@ -1,40 +1,35 @@
+
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class Alert extends StatelessWidget {
+  const Alert({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("alert 입니다"),
+        title: const Text("Alert"),
       ),
-      body: Container(
-        child: Center(
-          child: TextButton(
-            child: Text("팝업 버튼"),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext con) {
-                  return AlertDialog(
-                    title: Text("Dialog Title"),
-                    content: Container(child: Text("내용입니다.")),
-                    actions: [
-                      TextButton(
-                          onPressed: () => Navigator.of(context).pop(),
-                          child: Text("Close"))
-                    ],
-                  );
-                },
-              );
-            },
-          ),
+      body: Center(
+        child: TextButton(
+          child: const Text("Button"),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext con) {
+                return AlertDialog(
+                  title: const Text("Alert!!"),
+                  content: const Text("Pressed."),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text("Close"),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
         ),
       ),
     );

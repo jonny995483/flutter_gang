@@ -1,28 +1,48 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class StackPage extends StatelessWidget {
+  const StackPage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.center, // Center children in the Stack
-        children: [
-          ...List.generate(
-            5,
-            (index) => Container(
-              width: index * 350 + 350,
-              height: index * 100 + 100,
-              color: Color.fromRGBO(index * 20, index * 20, index * 40, 1.0),
+      appBar: AppBar(
+        title: const Text("Stack"),
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Colors.yellow,
+        child: Stack(
+          children: [
+            Container(
+              width: 150,
+              height: 200,
+              color: Colors.red,
             ),
-          ).reversed,
-        ],
+            Container(
+              width: 150,
+              height: 200,
+              margin: const EdgeInsets.only(top: 50, left: 50),
+              color: Colors.blue,
+            ),
+            Positioned(
+              left: 100,
+              top: 100,
+              child: Container(
+                width: 150,
+                height: 200,
+                color: Colors.green,
+              ),
+            ),
+            Container(
+              width: 150,
+              height: 200,
+              margin: const EdgeInsets.only(top: 150, left: 150),
+              color: Colors.orange,
+            ),
+          ],
+        ),
       ),
     );
   }
