@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class Image1 extends StatelessWidget {
+  const Image1({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text ('아일릿 이로하'),
+        title: const Text("Image"),
       ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-    child: Image.network('https://thumb.mtstarnews.com/06/2024/02/2024022710391310423_1.jpg/dims/optimize/')
-      )
+      body: Center(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            double width = constraints.maxWidth * 0.5;
+            double height = constraints.maxHeight * 0.5;
+
+            return SizedBox(
+              width: width,
+              height: height,
+              child: Image.network(
+                  "https://for.stella.place/assets/Stella_R3_iOS_1024.png",
+                  fit: BoxFit.contain),
+            );
+          },
+        ),
+      ),
     );
   }
 }
